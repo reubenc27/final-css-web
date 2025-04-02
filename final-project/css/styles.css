@@ -1,0 +1,620 @@
+:root {
+    --white: #fffaf7;
+    --mustard: #efb310;
+    --forest: #283618;
+    --olive: #4b643d;
+    --grass: #88a974;
+}
+@font-face {
+    font-family: "Droid";
+    src: url(../fonts/Droid.ttf);
+}
+@font-face {
+    font-family: "DroidB";
+    src: url(../fonts/DroidBold.ttf);
+}
+@font-face {
+    font-family: "DroidI";
+    src: url(../fonts/DroidItalic.ttf);
+}
+@font-face {
+    font-family: "DroidBI";
+    src: url(../fonts/DroidBoldItalic.ttf);
+}
+@font-face {
+    font-family: "Elegant";
+    src: url(../fonts/Elegant.ttf);
+}
+@font-face {
+    font-family: "Signature";
+    src: url(../fonts/Signature.ttf);
+}
+
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ INDEX.PHP ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+/* ~~~~~~~~~~~~~~~~~~~ masthead ~~~~~~~~~~~~~~~~~~~ */
+.masthead {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url("../img/masthead.jpg");
+    background-repeat: no-repeat;
+    background-size: cover; 
+    background-position: center; 
+    width: 100%; 
+    height: 90vh; 
+    position: relative; /* Ensure that children can position relative to this */
+    flex-direction: column;
+}
+.masthead::before {
+    content: "";
+    position: absolute;
+    display: block;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(255, 255, 255, 0.4);
+    z-index: 1; /* Overlay stays below content */
+}
+.masthead > * {
+    position: relative;
+    z-index: 2; /* Ensure content (like text) stays above overlay */
+}
+.masthead h1 {
+    padding-top: 100px;
+    font-family: "DroidI";
+    font-size: 75px;
+    font-weight: 100;
+    text-transform: uppercase;
+    color: var(--forest);
+    text-align: center;
+}
+.masthead h2 {
+    font-family: "Elegant";
+    color: var(--forest);
+    font-size: 75px;
+    padding-top: 20px;
+    margin-bottom: 0;
+}
+.quote {
+    margin-top: -20px;
+    padding: 10px;
+    background-color: rgba(239, 179, 16, 0.7); /* --mustard, but with some transparency */
+    font-size: 30px;
+    font-family: "Droid";
+    border: none;
+    border-radius: 15px;
+    height: 60px;
+}
+.quote a {
+    text-decoration: none;
+    color: var(--forest);
+}
+.quote:hover {
+    background-color: rgba(239, 179, 16, 0.9); /* --mustard, but with some transparency */
+
+}
+/* ~~~~~~~~~~~~~~~~~~~ welcome ~~~~~~~~~~~~~~~~~~~ */
+.welcome {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    background-color: var(--white);
+}
+.welcome .main {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
+.left {
+    padding-top: 100px;
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.left h2 {
+    font-family: "Droid";
+    font-weight: 100;
+    color: var(--forest);
+    font-size: 60px;
+    margin-bottom: 0;
+}
+.left h2 strong {
+    display: block;
+    font-family: "Signature";
+    color: var(--mustard);
+    font-size: 220px;
+    font-weight: 200;
+    margin-left: -60px;
+    letter-spacing: 3px;
+}
+.line {
+    display: block;
+    margin-top: -20px;
+    height: 10px;
+    width: 500px;
+}
+.left p {
+    font-family: "Droid";
+    font-weight: 100;
+    color: var(--forest);
+    padding: 20px 60px;
+    font-size: 25px;
+    text-align: justify;
+    line-height: 30px;
+}
+.right {
+    padding-top: 80px;
+    width: 60%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#img {
+    position: fixed;
+}
+.next, .prev {
+    background-color: rgba(77, 100, 61, 0.4);
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    font-size: 18px;
+    z-index: 10;
+}
+.prev {
+    margin-right: 15px; 
+}
+.next {
+    margin-left: 15px; 
+}
+.next:hover, .prev:hover {
+    background-color: rgba(77, 100, 61, 0.7);
+}
+.welcome h3 {
+    margin-top: 30px;
+    background: linear-gradient(to right, 
+        rgba(239, 179, 16, 0.4) 0%, rgba(239, 179, 16, 0.4) 13%, 
+        rgba(40, 54, 24, 0.4) 13%, rgba(40, 54, 24, 0.4) 26%, 
+        rgba(136, 169, 116, 0.4) 26%, rgba(136, 169, 116, 0.4) 100%);
+    width: 100%;
+    font-size: 40px;
+    padding: 25px 0;
+    font-family: "DroidI";
+    font-weight: 100;
+}
+/* ~~~~~~~~~~~~~~~~~~~ offer ~~~~~~~~~~~~~~~~~~~ */
+.offer {
+    background-color: var(--white);
+    padding-top: 60px;
+    padding-bottom: 20px;
+}
+.offer h2 {
+    font-family: "DroidI";
+    text-transform: uppercase;
+    font-weight: 100;
+    color: var(--forest);
+    font-size: 60px;
+    margin-bottom: 0;
+    text-align: center;
+}
+.line-2 {
+    width: 600px;
+    margin: 10px auto; /* Centers it horizontally */
+    display: block;
+}
+.desc {
+    padding-top: 30px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.desc h3 {
+    color: var(--forest);
+    font-family: "DroidI";
+    font-weight: 200;
+    font-size: 25px;
+    text-align: center;
+    padding-top: 10px;
+}
+.desc p {
+    color: var(--forest);
+    font-family: "Droid";
+    font-weight: 100;
+    font-size: 16px;
+    text-align: center;
+    padding-top: 5px;
+    margin: 0 40px;
+}
+.l-c, .mats, .s-d, .septic {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.desc img {
+    height: auto; 
+    width: 250px;
+}
+
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ ABOUT.PHP ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+#about {
+    background-color: var(--white);
+    text-align: center;
+}
+
+#about h2 {
+    font-family: "DroidI";
+    font-size: 60px;
+    color: var(--forest);
+    margin-bottom: 20px;
+    padding-top: 50px;
+}
+
+#about h3 {
+    font-family: "Droid";
+    font-size: 40px;
+    color: var(--olive);
+    margin: 20px 0;
+}
+
+#about p {
+    font-family: "Droid";
+    font-size: 20px;
+    color: var(--forest);
+    line-height: 1.6;
+    max-width: 800px;
+    margin: 0 auto 20px;
+    padding: 0 20px;
+}
+
+.pride {
+    background-color: rgba(239, 179, 16, 0.2); 
+    border-radius: 10px;
+    padding: 20px;
+    margin-top: 40px;
+    width: 50%;
+    margin: auto auto;
+    margin-bottom: 40px;
+
+}
+.pride h3 {
+    font-family: "DroidI";
+    font-size: 25px;
+    color: var(--forest);
+}
+.pride ul {
+    list-style: none;
+    padding: 0;
+    font-family: "Droid";
+    font-size: 18px;
+    color: var(--forest);
+}
+.pride li {
+    margin: 10px 0;
+    position: relative;
+    padding-left: 20px;
+}
+.pride li::before {
+    content: "✔"; /* Check mark before each item */
+    color: var(--mustard);
+}
+
+
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ REGISTER.PHP ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+#register{
+    background: linear-gradient(
+            to bottom right, 
+            rgba(136, 169, 116, 0.4) 0%, 
+            rgba(136, 169, 116, 0.4) 20%, 
+            var(--grass) 47%, 
+            var(--grass) 48%, 
+            rgba(136, 169, 116, 0.4) 80%, 
+            rgba(136, 169, 116, 0.4) 100%
+        );
+    z-index: -1;
+}
+.form {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 40px;
+}
+.create {
+    background: rgba(255, 250, 247, 0.4);
+    margin: 30px 30px;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 400px;
+    text-align: center;
+}
+.create h2 {
+    font-family: "DroidB";
+    font-size: 30px;
+    padding-bottom: 10px;
+}
+::placeholder{
+    font-family: "Droid";
+    color: var(--olive);
+    font-size: 14px;
+}
+input {
+    width: 90%;
+    padding: 10px 10px;
+    margin: 10px 0;
+    border-radius: 5px;
+    background-color: var(--white);
+}
+.submit {
+    background: var(--mustard);
+    color: var(--forest);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: "DroidI";
+    font-size: 15px;
+    padding: 10px 30px;
+}
+.submit:hover {
+    background: var(--grass);
+}
+a {
+    text-decoration: none;
+    color: var(--forest);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 90px;
+}
+a:hover {
+    color: var(--olive)
+}
+
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ LOGIN.PHP ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+#login{
+    background: linear-gradient(
+            to bottom right, 
+            rgba(136, 169, 116, 0.4) 0%, 
+            rgba(136, 169, 116, 0.4) 20%, 
+            var(--grass) 47%, 
+            var(--grass) 48%, 
+            rgba(136, 169, 116, 0.4) 80%,
+            rgba(136, 169, 116, 0.4) 100%
+        );
+    z-index: -1;
+}
+.login {
+    background: rgba(255, 250, 247, 0.4);
+    margin: 30px 30px;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    text-align: center;
+}
+.login h2 {
+    font-family: "DroidB";
+    font-size: 30px;
+    padding-bottom: 10px;
+}
+input {
+    width: 90%;
+    padding: 10px 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: var(--white);
+}
+.submit {
+    background: var(--mustard);
+    color: var(--forest);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: "DroidI";
+    font-size: 25px;
+    padding: 10px 30px;
+}
+.submit:hover {
+    background: var(--grass);
+}
+a {
+    text-decoration: none;
+    color: var(--forest);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 97px;
+}
+a:hover {
+    color: var(--olive)
+}
+
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ QUOTE.PHP ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+#quote{
+    background: rgba(255, 250, 247, 0.9) ;
+}
+.calc {
+    margin: 20px auto;
+    margin-top: 60px;
+    padding: 20px;
+    width: 80%;
+    max-width: 800px;
+    border: 1px solid var(--mustard);
+    background-color: var(--white);
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    font-family: "Droid";
+    font-size: 20px;
+}
+.calc table {
+    width: 100%;
+    border-collapse: collapse;
+}
+.calc th, .calc td {
+    padding: 12px;
+    text-align: center;
+}
+.calc th {
+    background-color: rgba(136, 169, 116, 0.4);
+}
+.calc td input, .calc td select {
+    width: 100%;
+    padding: 8px;
+    margin: 4px 0;
+    border: 1px solid rgba(136, 169, 116, 0.2);
+    border-radius: 4px;
+}
+.calc button {
+    background-color: var(--olive);
+    color: var(--white);
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+.calc button:hover {
+    background-color: var(--forest);
+}
+#price-display {
+    font-weight: bold;
+    font-size: 18px;
+    color: #333;
+}
+.total {
+    font-size: 22px;
+    color: var(--olive);
+    text-align: center;
+    margin-top: 20px;
+}
+.reset {
+    display: flex;
+    justify-content: center;  
+    margin-top: 20px; 
+    padding-bottom: 40px;
+}
+.reset button {
+    background-color: var(--mustard);
+    color: var(--white);
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+.reset button:hover {
+    background-color: var(--grass);
+}
+
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ ADMIN.PHP ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+.masthead h3 {
+    font-family: "Droid";
+    color: var(--forest);
+    font-size: 30px;
+}
+.mng {
+    padding: 20px 0;
+    margin: 10px 0;
+    color: var(--forest);
+    text-align: center;
+    font-family: "DroidB";
+    font-size: 35px;
+}
+#admin table {
+    width: 90%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+
+    margin: 20px auto;
+    padding: 20px;
+    background: var(--white);
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+#admin th, #admin td {
+    text-align: center;
+    font-family: "Droid";
+    font-size: 20px;
+    color: var(--forest);
+    padding: 12px;
+    border-bottom: 1px solid var(--mustard);
+}
+#admin th {
+    background-color: var(--grass);
+    color: var(--white);
+}
+#admin tr:hover {
+    background-color: var(--white);
+}
+#admin a {
+    padding-top: 90px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: var(--olive);
+    text-decoration: none;
+    text-align: center;
+}
+.logout-link {
+    display: block;
+    text-align: center;
+    color: var(--forest);
+    font-size: 20px;
+}
+
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ EDIT_ITEM.PHP ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+#edit-item {
+    background: rgba(136, 169, 116, 0.2);    
+    text-align: center;
+    padding-top: 60px;
+}
+#edit-item h1 {
+    font-family: "DroidB";
+    color: var(--forest);
+    font-size: 30px;
+    margin-bottom: 20px;
+}
+#edit-item form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+#edit-item label {
+    font-family: "Droid";
+    color: var(--forest);
+    font-size: 18px;
+    margin: 10px 0 5px;
+}
+#edit-item input[type="text"],
+#edit-item input[type="number"] {
+    width: 60%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid var(--mustard);
+    border-radius: 5px;
+    background-color: var(--white);
+    text-align: center;
+}
+#edit-item input[type="submit"] {
+    background: var(--mustard);
+    color: var(--forest);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: "DroidI";
+    font-size: 18px;
+    padding: 10px 20px;
+    margin-top: 20px;
+    width: 10%;
+}
+#edit-item input[type="submit"]:hover {
+    background: var(--grass);
+}
+#edit-item a {
+    color: var(--olive);
+    text-decoration: none;
+    margin-top: 20px;
+}
